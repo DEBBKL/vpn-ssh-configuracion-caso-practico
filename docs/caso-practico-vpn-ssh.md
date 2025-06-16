@@ -27,7 +27,9 @@ Antes de instalar cualquier servicio, es vital permitir conexiones entrantes por
 ```powershell
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 ```
-
+![Instalación Powershell](../imgs/1.PNG)
+![Instalación Powershell](../imgs/2.PNG)
+![Instalación Powershell](../imgs/3.PNG)
 ---
 
 ## ⚙️ Paso 3: Configurar y activar el servicio
@@ -43,12 +45,15 @@ Start-Service sshd
 ```powershell
 Set-Service -Name sshd -StartupType Automatic
 ```
+![Instalación Powershell](../imgs/4.PNG)
 
-### Verificar que el puerto 22 está escuchando:
+### Verificar que el puerto 22 está en ejecución y escuchando:
 
 ```powershell
 netstat -an | findstr :22
 ```
+![Instalación Powershell](../imgs/5.PNG)
+![Instalación Powershell](../imgs/6.PNG)
 
 ---
 
@@ -57,6 +62,10 @@ netstat -an | findstr :22
 - Crear o utilizar una cuenta estándar (no administrador).
 - Asegurarse de que tenga contraseña definida.
 - Iniciar sesión como ese usuario (ej: RISTOMEJIDE).
+
+![Instalación Powershell](../imgs/7.PNG)
+![Instalación Powershell](../imgs/8.PNG)
+![Instalación Powershell](../imgs/9.PNG)
 
 ---
 
@@ -71,6 +80,9 @@ Comando para conectarse desde Kali:
 ```bash
 ssh RISTOMEJIDE@10.0.2.15
 ```
+
+![Instalación Powershell](../imgs/10.PNG)
+![Instalación Powershell](../imgs/11.PNG)
 
 ---
 
