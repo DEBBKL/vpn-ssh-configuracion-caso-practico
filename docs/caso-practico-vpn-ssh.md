@@ -23,5 +23,72 @@ Antes de instalar cualquier servicio, es vital permitir conexiones entrantes por
 3. Buscar y seleccionar **Servidor OpenSSH**, luego clic en **Instalar**.
 
 ### Opción PowerShell:
+
 ```powershell
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+```
+
+---
+
+## ⚙️ Paso 3: Configurar y activar el servicio
+
+### Iniciar el servicio:
+
+```powershell
+Start-Service sshd
+```
+
+### Configurar inicio automático:
+
+```powershell
+Set-Service -Name sshd -StartupType Automatic
+
+### Verificar que el puerto 22 está escuchando:
+
+```powershell
+netstat -an | findstr :22
+```
+
+---
+
+## 👥 Paso 4: Configuración del usuario
+
+- Crear o utilizar una cuenta estándar (no administrador).
+- Asegurarse de que tenga contraseña definida.
+- Iniciar sesión como ese usuario (ej: RISTOMEJIDE).
+
+---
+
+## 🖥️ Paso 5: Prueba de conexión desde cliente (Kali Linux)
+
+IPs de ejemplo:
+- Windows 11: 10.0.2.15
+- Kali Linux: 10.0.2.5
+
+Comando para conectarse desde Kali:
+
+```bash
+ssh RISTOMEJIDE@10.0.2.15
+```
+
+---
+
+## 📤 Paso 6: Transferencia de archivos
+
+Desde Kali, el empleado puede descargar el archivo de configuración VPN con:
+
+```bash
+scp RISTOMEJIDE@10.0.2.15:/ruta/al/archivo.ovpn ~/Descargas/
+```
+
+---
+
+## 🔐 Seguridad adicional
+
+- Añadir clave pública del usuario cliente en ~/.ssh/authorized_keys del servidor.
+- Usar archivo ~/.ssh/config para definir alias SSH en cliente.
+- Configurar acceso restringido por IP o grupo.
+
+## ✅ Conclusión
+
+Este caso práctico demuestra la implementación de un acceso remoto seguro para la distribución de un archivo de configuración VPN en un entorno Windows + Linux mediante SSH. Refleja buenas prácticas de seguridad y administración de sistemas.
