@@ -42,6 +42,7 @@ Start-Service sshd
 
 ```powershell
 Set-Service -Name sshd -StartupType Automatic
+```
 
 ### Verificar que el puerto 22 está escuchando:
 
