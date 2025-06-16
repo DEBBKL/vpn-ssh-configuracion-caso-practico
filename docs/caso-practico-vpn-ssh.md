@@ -94,6 +94,14 @@ Desde Kali, el empleado puede descargar el archivo de configuración VPN con:
 scp RISTOMEJIDE@10.0.2.15:/ruta/al/archivo.ovpn ~/Descargas/
 ```
 
+Ya tenemos conexión remota al servidor SSH, los usuarios en su lado cliente pueden conectarse y
+copiar el archivo de configuración. El administrador instala y configura el servicio OpenSSH en uno
+de los servidores de la LAN corporativa, restringe el acceso únicamente a los usuarios autorizados y
+sitúa el archivo de configuración del VPN en un directorio accesible vía SCP/SFTP. En el cliente cada
+usuario genera (o reutiliza) su par de claves SSH, añade la clave pública al servidor y opcionalmente
+define un alias en ~/.ssh/config para simplificar la conexión. Luego sólo debe ejecutar un comando
+scp o usar un cliente SFTP para copiar el fichero a su equipo doméstico.
+
 ---
 
 ## 🔐 Seguridad adicional
